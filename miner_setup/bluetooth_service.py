@@ -1,10 +1,5 @@
 import bluetooth
 import traceback
-import docker_manager
-import wifi_manager
-import connection_manager
-import notification_handler
-
 class BluetoothService:
     def __init__(self):
         self.server_sock = None
@@ -62,14 +57,3 @@ class BluetoothService:
                 self.server_sock.close()
             print("Disconnected.")
 
-# main.py
-if __name__ == "__main__":
-    wallet_address = None  # Initialize or retrieve from some source
-    docker_manager = docker_manager(wallet_address)
-    wifi_manager = wifi_manager()
-    connection_manager = connection_manager(wallet_address)
-    notification_handler = notification_handler(wallet_address)
-    bluetooth_service = BluetoothService()
-
-    # Run your Bluetooth service
-    bluetooth_service.run()
