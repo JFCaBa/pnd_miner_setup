@@ -1,14 +1,14 @@
 #!/bin/bash
 
 # Pull the latest image
-docker pull jfca68/pnd_scanner_worker:latest
+docker pull jfca68/pnd_miner:latest
 
 # Stop and remove the existing worker container (if it exists)
-docker stop worker || true
-docker rm worker || true
+docker stop miner || true
+docker rm miner || true
 
 # Run the new worker container
-docker run --name worker -d jfca68/pnd_scanner_worker:latest
+docker run --name miner -d jfca68/pnd_miner:latest
 
 # Check if Watchtower is running, and only run if it's not
 if [ ! "$(docker ps -q -f name=watchtower)" ]; then

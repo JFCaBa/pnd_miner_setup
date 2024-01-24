@@ -1,6 +1,5 @@
 import subprocess
 
-
 class DockerManager:
     def __init__(self, wallet_address):
         self.wallet_address = wallet_address
